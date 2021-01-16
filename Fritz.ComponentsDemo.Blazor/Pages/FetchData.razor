@@ -14,7 +14,7 @@ else
  
 <SuperTable Headers="@Headers" Collection="@forecasts">
 	<RowTemplate Context="forecast">
-		<Fritz.ComponentsDemo.Blazor.Components.TableCell>@forecast.Date.ToShortDateString()</Fritz.ComponentsDemo.Blazor.Components.TableCell>
+		<Fritz.ComponentsDemo.Lib.TableCell>@forecast.Date.ToShortDateString()</Fritz.ComponentsDemo.Lib.TableCell>
 		<TableCell>@forecast.TemperatureC.ToString()</TableCell>
 		<TableCell>@forecast.TemperatureF.ToString()</TableCell>
 		<TableCell Width="300" style="background-color: black; color: lime; font-weight: bold;">@forecast.Summary</TableCell>
