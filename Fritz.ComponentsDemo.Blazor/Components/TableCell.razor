@@ -1,7 +1,11 @@
-﻿<td>@Content</td>
+﻿<td width="@Width" @attributes="OtherAttributes">@ChildContent</td>
 
 @code {
 
-	[Parameter] public string Content { get; set; }
+	[Parameter] public RenderFragment ChildContent { get; set; }
+
+	[Parameter] public int Width { get; set; }
+
+	[Parameter(CaptureUnmatchedValues =true)] public Dictionary<string, object> OtherAttributes { get; set; }
 
 }
