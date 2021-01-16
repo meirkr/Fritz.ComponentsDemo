@@ -24,10 +24,10 @@ else
 			@foreach (var forecast in forecasts)
 			{
 				<tr>
-					<td>@forecast.Date.ToShortDateString()</td>
-					<td>@forecast.TemperatureC</td>
-					<td>@forecast.TemperatureF</td>
-					<td>@forecast.Summary</td>
+					<Fritz.ComponentsDemo.Blazor.Components.TableCell Content="@forecast.Date.ToShortDateString()"></Fritz.ComponentsDemo.Blazor.Components.TableCell>
+					<TableCell Content="@forecast.TemperatureC.ToString()"></TableCell>
+					<TableCell Content="@forecast.TemperatureF.ToString()"></TableCell>
+					<TableCell Content="@forecast.Summary"></TableCell>
 				</tr>
 			}
 		</tbody>
