@@ -1,0 +1,32 @@
+﻿@typeparam TItem
+
+<table class="table superTable" @attributes="OtherAttributes">
+	<thead>
+		<tr>
+		@foreach (var h in Headers)
+		{
+			<th>@h</th>
+		}
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Collection)
+		{
+			<tr>
+				@RowTemplate(item);
+			</tr>
+		}
+	</tbody>
+</table>
+
+@code {
+
+	[Parameter] public string[] Headers { get; set; }
+
+	[Parameter] public IEnumerable<TItem> Collection { get; set; }
+
+	[Parameter] public RenderFragment<TItem> RowTemplate { get; set; }
+
+	[Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> OtherAttributes { get; set; }
+
+}

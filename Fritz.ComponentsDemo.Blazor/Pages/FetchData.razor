@@ -11,31 +11,22 @@
 }
 else
 {
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Date</th>
-				<th>Temp. (C)</th>
-				<th>Temp. (F)</th>
-				<th>Summary</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var forecast in forecasts)
-			{
-				<tr>
-					<Fritz.ComponentsDemo.Blazor.Components.TableCell>@forecast.Date.ToShortDateString()</Fritz.ComponentsDemo.Blazor.Components.TableCell>
-					<TableCell>@forecast.TemperatureC.ToString()</TableCell>
-					<TableCell>@forecast.TemperatureF.ToString()</TableCell>
-					<TableCell Width="300" style="background-color: black; color: lime; font-weight: bold;">@forecast.Summary</TableCell>
-				</tr>
-			}
-		</tbody>
-	</table>
+ 
+<SuperTable Headers="@Headers" Collection="@forecasts">
+	<RowTemplate Context="forecast">
+		<Fritz.ComponentsDemo.Blazor.Components.TableCell>@forecast.Date.ToShortDateString()</Fritz.ComponentsDemo.Blazor.Components.TableCell>
+		<TableCell>@forecast.TemperatureC.ToString()</TableCell>
+		<TableCell>@forecast.TemperatureF.ToString()</TableCell>
+		<TableCell Width="300" style="background-color: black; color: lime; font-weight: bold;">@forecast.Summary</TableCell>
+	</RowTemplate>
+</SuperTable>
+
 }
 
 @code {
 	private WeatherForecast[] forecasts;
+
+	private readonly static string[] Headers = new string[] { "Date", "Temp. (C)", "Temp. (F)", "Summary" };
 
 	protected override async Task OnInitializedAsync()
 	{
